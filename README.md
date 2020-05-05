@@ -30,9 +30,9 @@ Her analitik satırı şu bilgileri içerir:
 
 Ürün MVP sürecini tamamlamış ve müşterimiz tarafından çok beğenilmiştir. Ancak yazılımda fonksiyonalite ve performans açısından problemler bulunmaktadır. Müşterimiz ürünü kullanmaya başlamak için bu sorunların düzeltilmesini talep etmektedir.
 
-Senden beklentimiz aşağıdaki problemlere mevcut yazılımı değiştirerek çözüm bulman!
+**Senden beklentimiz aşağıdaki problemlere mevcut yazılımı değiştirerek çözüm bulman!
 Müşterimizin ilettiği taleplerde herhangi bir öncelik sırası bulunmuyor, tek kural eksik veya hatalı ama kesinlikle çalışan bir yazılım teslim etmen!
-Şimdiden çok teşekkürler! 
+Şimdiden çok teşekkürler!**
 
 **1.** Fiyat okuma modülü her seferinde fiyat değişim dosyasını tümden okuyup sadece veritabanında daha önce kaydedilmeyen satırları kaydetmektedir. Bu durum büyük bir performans kaybına neden olmaktadır. Bunun yerine sadece yeni eklenen satırlar okunmalı ve kullanılmalıdır.
 
