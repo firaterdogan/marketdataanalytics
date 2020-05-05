@@ -24,7 +24,7 @@ Her analitik satırı şu bilgileri içerir:
 
 **4.** Kullanıcı ekranda olduğu sürece sürekli son 5 saniyedeki hisse senedi fiyat değişim adetleri gelir. Yazılımın veri yayınlama modülü her 1 er saniye bekleme yaparak sürekli kullanıcılara son güncel 5 saniyelik veriyi dağıtmaktadır.
 
-**5.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca **m** veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesini kontrol edebilmektedir.
+**5.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik alarm epostası atabilmesini kontrol edebilmektedir.
 
 ## Nasıl Çalışmalı?
 
@@ -89,3 +89,12 @@ zaman aralıklarındaki ISCTR fiyat değişimi analitiği mevcut yazılımda ş�
  
  **8.** Mevcuttaki fiyat dağıtımı modülü, kullanıcısı sayısı arttıkça kullanıcıları yeni veriler için daha fazla bekletecek yapıdadır. Örneğin sisteme bağlı 10 kullanıcı var ise 1. kullanıcıdan başlayarak 10. kullanıcıya kadar veriler dağıtılır, ardından 1 saniye beklenerek yeniden 10 kullanıcıya dağıtım yapılır.
 Kullanıcıları güncel veri için daha az bekletebilecek bir yapı kurgulanarak geliştirmesi yapılmalıdır.
+
+**9.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
+Eğer bu durum 3 veri sağlayıcı için de yaşanıyorsa yönetici kullanıcıya alarm epostası atılmasına gerek yoktur.
+
+
+Örneğin:
+
+A firmasından 10 saniye boyunca veri gelmemiş ama aynı 10 saniye içinde B ve C  firmalarından da yeni veri gelmemişse eposta atılmamalı, Ancak en az bir firmadan aynı süre içinde veri gelmiş, bir veya birden fazla firmadan veri gelmemişse, veri gelmeyen firma(lar) için alarm epostası atılmalıdır.
+
