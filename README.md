@@ -52,8 +52,10 @@ Fiyat değişim verilerin uygulama belleğinde tutulması ve buradan kullanıcı
 **6.** Kullanıcılar hisse senedi fiyat değişimi analitiğini görecekleri süreleri kendileri ekrandan yönetebilmek istemektedir.
 
 Örneğin  Ahmet kullanıcısı ekranında 10 saniye seçerek son 10 saniyedeki fiyat değişimlerini görebilmeli, aynı anda Mehmet kullanıcısı ekranında 135 saniye seçerek son 135 saniyedeki analitik verisini görebilmelidir.
+
+**7.** Kullanıcılar uygulamayı açtıklarında en son tercih ettikleri fiyat izleme aralığı değerinin kullanılmasını istemektedirler.
    
-**7.** Mevcut yazılımda birden fazla veri sağlayıcı firma aynı anda, aynı fiyat değişimini yazması durumunda fiyat değişim adeti satır sayısı kadar hesaplanmıştır. Ancak müşterimiz aynı anda aynı fiyat değişimi birden fazla veri 	sağlayıcı tarafından dosyalarına yazılsa dahi bunun 1 fiyat değişimi olarak hesaplanmasını istemektedir.
+**8.** Mevcut yazılımda birden fazla veri sağlayıcı firma aynı anda, aynı fiyat değişimini yazması durumunda fiyat değişim adeti satır sayısı kadar hesaplanmıştır. Ancak müşterimiz aynı anda aynı fiyat değişimi birden fazla veri 	sağlayıcı tarafından dosyalarına yazılsa dahi bunun 1 fiyat değişimi olarak hesaplanmasını istemektedir.
 
    Örneğin:
    
@@ -87,10 +89,10 @@ zaman aralıklarındaki ISCTR fiyat değişimi analitiği mevcut yazılımda ş�
  
  şeklindedir.
  
- **8.** Mevcuttaki fiyat dağıtımı modülü, kullanıcısı sayısı arttıkça kullanıcıları yeni veriler için daha fazla bekletecek yapıdadır. Örneğin sisteme bağlı 10 kullanıcı var ise 1. kullanıcıdan başlayarak 10. kullanıcıya kadar veriler dağıtılır, ardından 1 saniye beklenerek yeniden 10 kullanıcıya dağıtım yapılır.
+ **9.** Mevcuttaki fiyat dağıtımı modülü, kullanıcısı sayısı arttıkça kullanıcıları yeni veriler için daha fazla bekletecek yapıdadır. Örneğin sisteme bağlı 10 kullanıcı var ise 1. kullanıcıdan başlayarak 10. kullanıcıya kadar veriler dağıtılır, ardından 1 saniye beklenerek yeniden 10 kullanıcıya dağıtım yapılır.
 Kullanıcıları güncel veri için daha az bekletebilecek bir yapı kurgulanarak geliştirmesi yapılmalıdır.
 
-**9.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
+**10.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
 Eğer bu durum 3 veri sağlayıcı için de yaşanıyorsa yönetici kullanıcıya alarm epostası atılmasına gerek yoktur.
 
 
