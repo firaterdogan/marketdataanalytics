@@ -62,6 +62,7 @@ Fiyat değişim verilerin uygulama belleğinde tutulması ve buradan kullanıcı
 **A Veri Sağlayıcı Firma Satırları**
    
 `2020-05-07 12:11:59|AKBNK|1.01|0.18`
+
 `2020-05-07 12:11:59|ISCTR|0.42|0.32`
 
 `2020-05-07 12:11:59|GARAN|2.95|2.74`
