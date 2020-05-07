@@ -8,7 +8,7 @@
 
 Her bir değişim satırı şu bilgileri içerir.
 
-`'yyyy-MM-dd HH:mm:ss formatında tarih | hisse senedi kodu | hisse senedi önceki fiyatı	| hisse senedi yeni fiyatı`'
+`yyyy-MM-dd HH:mm:ss formatında tarih | hisse senedi kodu | hisse senedi önceki fiyatı	| hisse senedi yeni fiyatı`
 
  **2.**  Yazılımdaki fiyat okuma modülü o güne ait, bu 3 dosyayı sürekli okuyarak fiyat değişimlerini veritabanına kaydeder.
  
@@ -16,11 +16,11 @@ Her bir değişim satırı şu bilgileri içerir.
 
 Her analitik satırı şu bilgileri içerir:
 
-`'hisse senedi kodu | artış sayısı | azalış sayısı`'
+`hisse senedi kodu | artış sayısı | azalış sayısı`
 
 Örnek bir satır:
 
-`'ISCTR | 7 | 4`'
+`ISCTR | 7 | 4`
 
 **4.** Kullanıcı ekranda olduğu sürece sürekli son 5 saniyedeki hisse senedi fiyat değişim adetleri gelir. Yazılımın veri yayınlama modülü her 1 er saniye bekleme yaparak sürekli kullanıcılara son güncel 5 saniyelik veriyi dağıtmaktadır.
 
