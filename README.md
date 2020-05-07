@@ -8,7 +8,7 @@
 
 Her bir değişim satırı şu bilgileri içerir.
 
-`'yyyy-MM-dd HH:mm:ss,SSS formatında tarih | hisse senedi kodu | hisse senedi önceki fiyatı	| hisse senedi yeni fiyatı`'
+`'yyyy-MM-dd HH:mm:ss formatında tarih | hisse senedi kodu | hisse senedi önceki fiyatı	| hisse senedi yeni fiyatı`'
 
  **2.**  Yazılımdaki fiyat okuma modülü o güne ait, bu 3 dosyayı sürekli okuyarak fiyat değişimlerini veritabanına kaydeder.
  
@@ -57,35 +57,41 @@ Fiyat değişim verilerin uygulama belleğinde tutulması ve buradan kullanıcı
    
 **8.** Mevcut yazılımda birden fazla veri sağlayıcı firma aynı anda, aynı fiyat değişimini yazması durumunda fiyat değişim adeti satır sayısı kadar hesaplanmıştır. Ancak müşterimiz aynı anda aynı fiyat değişimi birden fazla veri 	sağlayıcı tarafından dosyalarına yazılsa dahi bunun 1 fiyat değişimi olarak hesaplanmasını istemektedir.
 
-   Örneğin:
+   Örneğin 2020-05-07 12:11:59 - 2020-05-07 12:12:00 zaman aralığında:
    
 **A Veri Sağlayıcı Firma Satırları**
    
-`'2020-01-02 14:15:12,001 | ISCTR | 4.92 | 4.93`'
-`'2020-01-02 14:15:13,256 | GARAN | 8.12 | 8.13`'
-`'2020-01-02 14:15:14,676 | ISCTR | 4.93 | 4.95`'
+`'2020-05-07 12:11:59|AKBNK|1.01|0.18`'
+`'2020-05-07 12:11:59|ISCTR|0.42|0.32`'
+`'2020-05-07 12:11:59|GARAN|2.95|2.74`'
+`'2020-05-07 12:12:00|AKBNK|0.18|0.91`'
    
  **B Veri Sağlayıcı Firma Satırları**
    
-`'2020-01-02 14:15:12,111 | GARAN | 8.11 | 8.12`'
-`'2020-01-02 14:15:13,346 | GARAN | 8.12 | 8.13`'
-`'2020-01-02 14:15:14,676 | ISCTR | 4.93 | 4.95`'
+`'2020-05-07 12:11:59|AKBNK|0.79|0.18`'
+`'2020-05-07 12:11:59|GARAN|2.95|3.71`'
+`'2020-05-07 12:11:59|ISCTR|0.42|0.32`'
+`'2020-05-07 12:12:00|GARAN|3.71|1.83`'
+`'2020-05-07 12:12:00|AKBNK|0.18|0.91`'
+`'2020-05-07 12:12:00|GARAN|1.83|1.57`'
 
  **C Veri Sağlayıcı Firma Satırları**
    
-`'2020-01-02 14:15:12,346 | ISCTR | 4.92 | 4.93`'
-`'2020-01-02 14:15:12,789 | ISCTR | 4.93 | 4.94`'
-`'2020-01-02 14:15:14,676 | ISCTR | 4.93 | 4.95`'
+`'2020-05-07 12:11:59|GARAN|3.07|3.71`'
+`'2020-05-07 12:11:59|AKBNK|0.03|0.18`'
+`'2020-05-07 12:11:59|ISCTR|0.42|0.32`'
+`'2020-05-07 12:11:59|AKBNK|0.18|0.25`'
+`'2020-05-07 12:12:00|GARAN|3.71|1.83`'
+`'2020-05-07 12:12:00|AKBNK|0.25|0.91`'
 
-2020-01-02 14:15:12,000 -- 2020-01-02 14:15:15,000
-zaman aralıklarındaki ISCTR fiyat değişimi analitiği mevcut yazılımda şöyle gösterilmiştir.
+ISCTR fiyat değişimi analitiği mevcut yazılımda şöyle gösterilmiştir.
    
-`'ISCTR | 6 | 0`'
+`'AKBNK | 5 | 2`'
    
  Ancak aslında 
- "2020-01-02 14:15:14,676 | ISCTR | 4.93 | 4.95"   satırı 3 dosya için de tekrar ettiği için olması gereken gösterim
+ "2020-05-07 12:12:00|AKBNK|0.18|0.91" satırı 2 dosya içinde tekrar ettiği için olması gereken gösterim
    
- `'ISCTR | 4 | 0`'
+ `'ISCTR | 4 | 2`'
  
  şeklindedir.
  
