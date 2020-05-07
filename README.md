@@ -62,27 +62,43 @@ Fiyat değişim verilerin uygulama belleğinde tutulması ve buradan kullanıcı
 **A Veri Sağlayıcı Firma Satırları**
    
 `'2020-05-07 12:11:59|AKBNK|1.01|0.18`'
+
 `'2020-05-07 12:11:59|ISCTR|0.42|0.32`'
+
 `'2020-05-07 12:11:59|GARAN|2.95|2.74`'
+
 `'2020-05-07 12:12:00|AKBNK|0.18|0.91`'
+
    
  **B Veri Sağlayıcı Firma Satırları**
    
 `'2020-05-07 12:11:59|AKBNK|0.79|0.18`'
+
 `'2020-05-07 12:11:59|GARAN|2.95|3.71`'
+
 `'2020-05-07 12:11:59|ISCTR|0.42|0.32`'
+
 `'2020-05-07 12:12:00|GARAN|3.71|1.83`'
+
 `'2020-05-07 12:12:00|AKBNK|0.18|0.91`'
+
 `'2020-05-07 12:12:00|GARAN|1.83|1.57`'
+
 
  **C Veri Sağlayıcı Firma Satırları**
    
 `'2020-05-07 12:11:59|GARAN|3.07|3.71`'
+
 `'2020-05-07 12:11:59|AKBNK|0.03|0.18`'
+
 `'2020-05-07 12:11:59|ISCTR|0.42|0.32`'
+
 `'2020-05-07 12:11:59|AKBNK|0.18|0.25`'
+
 `'2020-05-07 12:12:00|GARAN|3.71|1.83`'
+
 `'2020-05-07 12:12:00|AKBNK|0.25|0.91`'
+
 
 ISCTR fiyat değişimi analitiği mevcut yazılımda şöyle gösterilmiştir.
    
