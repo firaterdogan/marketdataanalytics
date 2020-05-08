@@ -34,28 +34,31 @@ Her analitik satırı şu bilgileri içerir:
 Müşterimizin ilettiği taleplerde herhangi bir öncelik sırası bulunmuyor, tek kural eksik veya hatalı ama kesinlikle çalışan bir yazılım teslim etmen!
 Şimdiden çok teşekkürler!**
 
-**1.** Fiyat okuma modülü her seferinde fiyat değişim dosyasını tümden okuyup sadece veritabanında daha önce kaydedilmeyen satırları kaydetmektedir. Bu durum büyük bir performans kaybına neden olmaktadır. Bunun yerine sadece yeni eklenen satırlar okunmalı ve kullanılmalıdır.
+**1.** Veri sağlayıcı firmalardan alınarak veritabanında saklanan bilgileri veritabanından okuyarak kullanıcılara analitik sonuçlar iletiminde performans sorunları tespit edilmiştir. Mevcuttaki çalışma şeklinin yerine aşağıdaki yöntemlerden bir veya bir kaçı ile veya sizin uygulayacağınız farklı yöntemler ile performans probleminin giderilmesi beklenmektedir.
+   
+   - Piyasa verisi veritabanı yerine bellekte tutularak işlenebilir. (Önerilen çözüm)
+   - Veritabanı veri modeli değiştirilebilir.
+   - Veritabanından verinin okunma ve işlenme yöntemleri değiştirilebilir.
+   - Cacheleme yöntemleri uygulanabilir.
+   - Veri boyutları küçültülebilir.
 
-**2.** Fiyat değişimlerinin her seferinde veritabanına yazılması ve veritabanından okunması performans sorunlarına neden olmakta ve kullanıcıların anlık analitik verisini doğru görebilmesini engellemektedir.
-Fiyat değişim verilerin uygulama belleğinde tutulması ve buradan kullanıcılara iletilmesi gerekmektedir.
-
-**3.** Yönetici kullanıcı uygulamanın belleğinde tutulacak veri miktarını parametrik olarak kontrol etmek istemekte ve bu sayede uygulama belleğini etkili kullanmak istemektedir.
+**2.** (Verilerin bellekte tutulacağı yöntemde) Yönetici kullanıcı uygulamanın belleğinde tutulacak veri miktarını parametrik olarak kontrol etmek istemekte ve bu sayede uygulama belleğini etkili kullanmak istemektedir.
 
 Örneğin uygulama belleğindeki veri sayısı "1000" satırı geçince en eski "250" satırı sil, 750 satırı bellekte tutmaya devam et şeklinde yönetimini talep etmektedir.
    
-**4.** Silinen satırların, silindiği an silinme zamanı ile birlikte veritabanına taşınmasını istemektedir.
+**3.** (Verilerin bellekte tutulacağı yöntemde) Silinen satırların, silindiği an silinme zamanı ile birlikte veritabanına taşınmasını istemektedir.
 
-**5.** Yönetici kullanıcı, silinmesi gereken M satır içindeki verilere ekran kullanıcıları son X saniyede erişmişse bu satırlara istisna tanınarak silinmemesini
+**4.** (Verilerin bellekte tutulacağı yöntemde) Yönetici kullanıcı, silinmesi gereken M satır içindeki verilere ekran kullanıcıları son X saniyede erişmişse bu satırlara istisna tanınarak silinmemesini
 
 Örneğin, uygulamadaki veri satırı sayısı "1000" olmuş ve 250 satırın silinmesi gerekmektedir ancak bu 250 satırın 50 tanesi son 10 saniyede kullanıcılara verilen analitik datasının oluşturulması için kullanılmış, bu yüzden bu 50 satır silinmez sadece 200 satır silinir.
 
-**6.** Kullanıcılar hisse senedi fiyat değişimi analitiğini görecekleri süreleri kendileri ekrandan yönetebilmek istemektedir.
+**5.** Kullanıcılar hisse senedi fiyat değişimi analitiğini görecekleri süreleri kendileri ekrandan yönetebilmek istemektedir.
 
 Örneğin  Ahmet kullanıcısı ekranında 10 saniye seçerek son 10 saniyedeki fiyat değişimlerini görebilmeli, aynı anda Mehmet kullanıcısı ekranında 135 saniye seçerek son 135 saniyedeki analitik verisini görebilmelidir.
 
-**7.** Kullanıcılar uygulamayı açtıklarında en son tercih ettikleri fiyat izleme aralığı değerinin kullanılmasını istemektedirler.
+**6.** Kullanıcılar uygulamayı açtıklarında en son tercih ettikleri fiyat izleme aralığı değerinin kullanılmasını istemektedirler.
    
-**8.** Mevcut yazılımda birden fazla veri sağlayıcı firma aynı anda, aynı fiyat değişimini yazması durumunda fiyat değişim adeti satır sayısı kadar hesaplanmıştır. Ancak müşterimiz aynı anda aynı fiyat değişimi birden fazla veri 	sağlayıcı tarafından dosyalarına yazılsa dahi bunun 1 fiyat değişimi olarak hesaplanmasını istemektedir.
+**7.** Mevcut yazılımda birden fazla veri sağlayıcı firma aynı anda, aynı fiyat değişimini yazması durumunda fiyat değişim adeti satır sayısı kadar hesaplanmıştır. Ancak müşterimiz aynı anda aynı fiyat değişimi birden fazla veri 	sağlayıcı tarafından dosyalarına yazılsa dahi bunun 1 fiyat değişimi olarak hesaplanmasını istemektedir.
 
    Örneğin 2020-05-07 12:11:59 - 2020-05-07 12:12:00 zaman aralığında:
    
@@ -111,10 +114,10 @@ ISCTR fiyat değişimi analitiği mevcut yazılımda şöyle gösterilmiştir.
  
  şeklindedir.
  
- **9.** Mevcuttaki fiyat dağıtımı modülü, kullanıcısı sayısı arttıkça kullanıcıları yeni veriler için daha fazla bekletecek yapıdadır. Örneğin sisteme bağlı 10 kullanıcı var ise 1. kullanıcıdan başlayarak 10. kullanıcıya kadar veriler dağıtılır, ardından 1 saniye beklenerek yeniden 10 kullanıcıya dağıtım yapılır.
+ **8.** Mevcuttaki fiyat dağıtımı modülü, kullanıcısı sayısı arttıkça kullanıcıları yeni veriler için daha fazla bekletecek yapıdadır. Örneğin sisteme bağlı 10 kullanıcı var ise 1. kullanıcıdan başlayarak 10. kullanıcıya kadar veriler dağıtılır, ardından 1 saniye beklenerek yeniden 10 kullanıcıya dağıtım yapılır.
 Kullanıcıları güncel veri için daha az bekletebilecek bir yapı kurgulanarak geliştirmesi yapılmalıdır.
 
-**10.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
+**9.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
 Eğer bu durum 3 veri sağlayıcı için de yaşanıyorsa yönetici kullanıcıya alarm epostası atılmasına gerek yoktur.
 
 
