@@ -120,12 +120,11 @@ Kullanıcıları güncel veri için daha az bekletebilecek bir yapı kurgulanara
 **9.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
 Eğer bu durum 3 veri sağlayıcı için de yaşanıyorsa yönetici kullanıcıya alarm epostası atılmasına gerek yoktur.
 
-**10.** Yeni hisse senedi eklenmesi veya bir hisse senedinin kodunun değişmesi durumunda önyüzde yeni hisse senedi kodunun görüntülenemediği görülmüştür. Bu durumun düzeltilmesi istenmektedir.
-
-
 Örneğin:
 
 A firmasından 10 saniye boyunca veri gelmemiş ama aynı 10 saniye içinde B ve C  firmalarından da yeni veri gelmemişse eposta atılmamalı, Ancak en az bir firmadan aynı süre içinde veri gelmiş, bir veya birden fazla firmadan veri gelmemişse, veri gelmeyen firma(lar) için alarm epostası atılmalıdır.
+
+**10.** Yeni hisse senedi eklenmesi veya bir hisse senedinin kodunun değişmesi durumunda önyüzde yeni hisse senedi kodunun görüntülenemediği bulgusu iletilmiştir. Bu durumun düzeltilmesi istenmektedir.
 
 # Modüller
 
