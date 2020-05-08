@@ -122,3 +122,17 @@ Eğer bu durum 3 veri sağlayıcı için de yaşanıyorsa yönetici kullanıcıy
 
 A firmasından 10 saniye boyunca veri gelmemiş ama aynı 10 saniye içinde B ve C  firmalarından da yeni veri gelmemişse eposta atılmamalı, Ancak en az bir firmadan aynı süre içinde veri gelmiş, bir veya birden fazla firmadan veri gelmemişse, veri gelmeyen firma(lar) için alarm epostası atılmalıdır.
 
+# Modüller
+
+## MarketDataProviderSimulator
+
+MarketDataAnalytics yazılımı çalışırken piyasa verileri sağlayıcılarının verileri kendilerine ait dosyalara yazmasını simule eden uygulamadır. 
+
+İçerisindeki start.bat ile çalıştırılabilir. start.bat içeriği aşağıdaki gibidir.
+
+`java -jar -Dpath="C:\tmp\marketdata" -Dlamda=500 MarketDataProviderSimulator.jar`
+
+dosyaların yazılacağı klasörü gösteren **path** ve test ederken verilerin yoğunluğunu kontrol etmek için kullanabileceğiniz **lamda** değişkenini kendiniz değiştirerek kullanabilirsiniz.
+
+**lamda** değişkeni azaltıldıkça daha saniyede yazılacak fiyat değişim sayıları artacaktır, **lamda** attırıldıkça fiyat değişim sıklığı azalacaktır.
+
