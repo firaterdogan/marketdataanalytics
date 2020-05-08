@@ -120,6 +120,8 @@ Kullanıcıları güncel veri için daha az bekletebilecek bir yapı kurgulanara
 **9.** Sistem admini yazılımın configurasyonunda **x** saniye boyunca 1 veri sağlayıcı firmadan yeni fiyat verisi gelmiyorsa sistemin admin kullanıcısına otomatik eposta atabilmesi kurgusunda şu şekilde bir değişiklik istenmektedir:
 Eğer bu durum 3 veri sağlayıcı için de yaşanıyorsa yönetici kullanıcıya alarm epostası atılmasına gerek yoktur.
 
+**10.** Yeni hisse senedi eklenmesi veya bir hisse senedinin kodunun değişmesi durumunda önyüzde yeni hisse senedi kodunun görüntülenemediği görülmüştür. Bu durumun düzeltilmesi istenmektedir.
+
 
 Örneğin:
 
@@ -139,3 +141,28 @@ dosyaların yazılacağı klasörü gösteren **path** ve test ederken verilerin
 
 **lamda** değişkeni azaltıldıkça daha saniyede yazılacak fiyat değişim sayıları artacaktır, **lamda** attırıldıkça fiyat değişim sıklığı azalacaktır.
 
+## MarketDataAnalytics
+
+### Gereksinimler
+- Java 8
+
+### Konfigurasyon
+- Uygulama konfigurasyonları /resource/application.yml üzerinden okunmaktadır.
+- uygulama h2 inmemory veritabanı ile çalışmaktadır. Geliştirme aşamasında ayrı bir veritabanına ihtiyaç duyulmamaktadır.
+- mail konfigurasyonlarında gerçek username ve password verilmemiştir geliştirme ortamında hata vermesi normaldir.
+- aşağıdaki uygulama konfigurasyonlarının açıklamaları yanlarına yazılmıştır
+
+
+`marketdataanalytics.dataloader.tail.delay` => veri sağlayıcı firmaların dosyalarında yeni veriler okunurken yeni veri satırı olmaması durumunda yapılan bekleme süresi (ms)
+
+`marketdataanalytics.marketdata.root.folder` => veri sağlayıcı firmaların dosyalarının bulunduğu klasör
+
+`marketdataanalytics.dataprovidercheck.check.interval` => firmaların veri akışının devam edip etmediği kontrolunde bakılan süre aralığı (ms)
+
+`marketdataanalytics.dataprovidercheck.check.delay` => firmaların veri akışının devam edip etmediği kontrolünün sıklığı (ms)
+
+`marketdataanalytics.dataprovidercheck.check.to` => firmaların veri akşında problem olması durumunda eposta atılacak adres
+
+`marketdataanalytics.stockvolatilities.feeder.interval` => Önyüzlere gönderilen analitik veriyi oluşturmak için kullanılan süre aralığı
+
+`marketdataanalytics.stockvolatilities.feeder.delay` => iki veri oluşturma döngüsü arasındaki bekleme süresi
