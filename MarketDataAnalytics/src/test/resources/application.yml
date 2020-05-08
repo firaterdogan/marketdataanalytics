@@ -1,0 +1,25 @@
+server:
+  port: 8086
+  error:
+    include-stacktrace: never
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/marketdataanalytics
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  cloud:
+    gcp:
+      storage:
+        enabled: false
+
+logging:
+  level:
+    org:
+      zalando:
+        logbook: TRACE

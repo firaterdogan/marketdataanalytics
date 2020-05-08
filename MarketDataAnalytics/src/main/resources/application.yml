@@ -1,0 +1,68 @@
+server:
+  port: 8086
+  error:
+    include-stacktrace: never
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:marketdataanalytics
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  cloud:
+    gcp:
+      storage:
+        enabled: false
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: testtesttsettest@gmail.com
+    password: testtesttsettest
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+  http:
+    multipart:
+      enabled: true
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: true
+          from: testtesttsettest@gmail.com
+          to: testtesttesttest@gmail.com
+marketdataanalytics:
+  dataloader:
+    tail:
+      delay: 100
+  marketdata:
+    root:
+      folder: C:\tmp\marketdata
+  dataprovidercheck:
+    check:
+      interval: 20000
+      delay: 10000
+      to: testtesttesttest@gmail.com
+  stockvolatilities:
+    feeder:
+      interval: 10000
+      delay: 1000
+  mail:
+    from: testtesttesttest@gmail.com
+    bcc: testtesttesttest@gmail.com
+logging:
+  level:
+    org:
+      zalando:
+        logbook: INFO
