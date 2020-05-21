@@ -10,7 +10,7 @@ Her bir değişim satırı şu bilgileri içerir.
 
 `yyyy-MM-dd HH:mm:ss formatında tarih | hisse senedi kodu | hisse senedi önceki fiyatı	| hisse senedi yeni fiyatı`
 
- **2.**  Yazılımdaki fiyat okuma modülü o güne ait, bu 3 dosyayı sürekli okuyarak fiyat değişimlerini veritabanına kaydeder.
+ **2.**  Yazılımdaki fiyat okuma modülü o güne ait bu 3 dosyayı sürekli okuyarak fiyat değişimlerini veritabanına kaydeder.
  
 **3.** Market Data Analytics kullanıcıları uygulamanın ekranını açtıklarında, geçmiş 5 saniyedeki hisse senedi fiyat değişim adetlerini görebilmektedirler.
 
